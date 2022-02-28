@@ -9,11 +9,10 @@ private:
 	contact contact_list[8];
 	int len;
 public:
-	phonebook();
+	Phonebook();
 	void add();
-	void display();
+	void displaybook();
 	void search();
-	void exit();
-}
+};
 
 #endif

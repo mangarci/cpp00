@@ -13,10 +13,10 @@ private:
 	std::string phone_number;
 	std::string darkest_secret;
 public:
-	Contact();
 	void add();
-	void display(int index);
-	std::string print(std::string str);
-}
+	void displaycontact(int index);
+	std::string modify_str(std::string str);
+	void print(int index);
+};
 
 #endif

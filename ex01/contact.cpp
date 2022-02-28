@@ -1,9 +1,5 @@
 #include "contact.hpp"
 
-void contact::contact()
-{
-}
-
 void contact::add()
 {
 	std::cout << "Please enter first name: ";
@@ -19,7 +15,7 @@ void contact::add()
 	std::cout << "Contact was succesfully created\n";
 }
 
-void contact::display(int index)
+void contact::displaycontact(int index)
 {
 	std::cout << "First name: " << this->first_name << std::endl;
 	std::cout << "Last name: " << this->last_name << std::endl;
@@ -28,17 +24,30 @@ void contact::display(int index)
 	std::cout << "Darkest secret: " << this->darkest_secret << std::endl;
 }
 
-std::string contact::print(std::string str)
+std::string contact::modify_str(std::string str)
 {
 	int	i;
 	std::string aux;
-
-	if (strlen(str) > 10)
+	
+	if (str.length() > 10)
 	{
 		aux = str.substr(0,9);
-		aux.inster(9, ".");
+		aux.insert(9, ".");
 	}
 	else
+	{
 		aux = str;
+		i = aux.length();
+		while (i < 10)
+		{
+			aux.insert(i, " ");
+			i++;
+		}
+	}
 	return (aux);
+}
+
+void contact::print(int index)
+{
+	std::cout << "|         " << index << "|" << modify_str(first_name) << "|" << modify_str(last_name) << "|" << modify_str(nickname) << "|" << std::endl;
 }

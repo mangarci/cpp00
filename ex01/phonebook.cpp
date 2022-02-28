@@ -1,6 +1,6 @@
 #include "phonebook.hpp"
 
-void Phonebook::phonebook()
+Phonebook::Phonebook()
 {
 	len = 0;
 }
@@ -20,8 +20,30 @@ void Phonebook::add()
 	}
 }
 
-void Phonebook::display()
+void Phonebook::displaybook()
 {
 	int i = 0;
-	std::cout << "|     index|
+	std::cout << "|     index|first name|last  name| nickname |" << std::endl;
+	while (i < len)
+	{
+		contact_list[i].print(i);
+		i++;
+	}
+}
+
+void Phonebook::search()
+{
+	int i;
+
+	if (len == 0)
+	{	
+		std::cout << "Contact list is empty" << std::endl;
+		return ;
+	}
+	std::cout << "Enter the contact's index: \n";
+	std::cin >> i;
+	if (i >= 0 && i <= len)
+		contact_list[i].displaycontact(i);
+	else
+		std::cout << "Index is not valid" << std::endl;
 }
